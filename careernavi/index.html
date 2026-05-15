@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キャリアナビ｜転職求人サイト</title>
+  <!-- Google Fonts: 日本語フォント (Noto Sans JP) と英字フォント (Inter) を読み込む -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- CSS 読み込み順: reset → variables（変数定義）→ common（共通部品）→ index（ページ固有） -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<!-- ===== S01: ヘッダー =====
+     position: fixed で画面上部に固定。スクロール時に JS が is-scrolled クラスを付与して影を表示。
+     ヘッダー高さ (72px) は variables.css や各ページの margin-top と合わせている。 -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">CareerNavi</a>
+    <nav class="header__nav">
+      <a href="#" class="header__login">ログイン</a>
+      <a href="register.html" class="btn btn--primary">無料で会員登録</a>
+      <a href="#" class="header__corp">法人の方はこちら</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== S02: ファーストビュー (FV) =====
+     hero-bg.webp の上に CSS グラデーションオーバーレイを重ねている。
+     画像差し替えは images/hero-bg.webp を入れ替え、index.css の background-image も更新。
+     検索フォームとCTAボタン、実績統計バーを含む。 -->
+<section class="fv">
+  <div class="fv__inner">
+    <!-- キャッチバッジ: 登録者数などの訴求文言 -->
+    <span class="fv__badge">累計登録者数 500,000人突破</span>
+    <h1 class="fv__title">あなたの次のキャリアへ、<br>確実な一歩を。</h1>
+    <p class="fv__subtitle">専任アドバイザーが内定まで完全サポート</p>
+    <p class="fv__count">掲載求人数 <strong>120,000件以上</strong>（非公開含む）</p>
+
+    <!-- 求人検索フォーム: キーワード入力・エリア選択・検索ボタンの3要素 -->
+    <div class="fv__search">
+      <input class="fv__search-input" type="text" placeholder="職種、会社名など">
+      <div class="fv__search-divider"></div>
+      <select class="fv__search-location">
+        <option value="">勤務地 ▾</option>
+        <option>東京都</option>
+        <option>大阪府</option>
+        <option>愛知県</option>
+        <option>神奈川県</option>
+        <option>福岡県</option>
+        <option>リモート可</option>
+      </select>
+      <button class="fv__search-btn" type="button">検索する</button>
+    </div>
+    <a href="#" class="fv__search-link">詳細条件で探す →</a>
+
+    <!-- CTAエリア: メイン登録ボタン + Google・Yahoo! SNS登録ボタン -->
+    <div class="fv__cta">
+      <a href="register.html" class="fv__cta-btn">簡単1分 無料で会員登録する →</a>
+      <div class="fv__sns-btns">
+        <a href="#" class="fv__sns-btn"><span class="fv__sns-btn-icon">G</span>Googleで登録</a>
+        <a href="#" class="fv__sns-btn"><span class="fv__sns-btn-icon">Y!</span>Yahoo!で登録</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 実績統計バー: FV 下部に求人数・登録者数・転職成功率を表示 -->
+  <div class="fv__stats">
+    <div class="fv__stats-inner">
+      <div class="stat">
+        <div class="stat__number">120,000件+</div>
+        <div class="stat__label">求人数</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">500,000人+</div>
+        <div class="stat__label">登録者数</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">93%</div>
+        <div class="stat__label">転職成功率</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S03: 特集スライダー =====
+     横スクロールカードが JS で自動ループする。
+     カードの追加・削除は .feature-card ブロックを増減するだけでOK。
+     スライド速度は js/index.js の speed 変数で調整。 -->
+<section class="feature">
+  <div class="feature__inner">
+    <h2 class="feature__title">今注目の特集</h2>
+    <div class="feature__slider">
+
+      <!-- 特集カード 1: accent の background 色でアクセントバーの色を変える -->
+      <div class="feature-card">
+        <img class="feature-card__img" src="images/feature-salary.webp" alt="年収アップ転職特集">
+        <div class="feature-card__accent" style="background:#F4A623;"></div>
+        <h3 class="feature-card__title">年収アップ転職特集</h3>
+        <div class="feature-card__count">2,341件</div>
+        <p class="feature-card__desc">現在の年収から+100〜300万円を目指せる求人を厳選。マネージャー職・専門職など高収入ポジションを多数掲載。</p>
+        <div class="feature-card__tags">
+          <span class="feature-card__tag">マネージャー</span>
+          <span class="feature-card__tag">専門職</span>
+          <span class="feature-card__tag">外資系</span>
+        </div>
+        <a href="#" class="feature-card__link">すべて見る →</a>
+      </div>
+
+      <!-- 特集カード 2 -->
+      <div class="feature-card">
+        <img class="feature-card__img" src="images/feature-remote.webp" alt="テレワーク可求人特集">
+        <div class="feature-card__accent" style="background:#2D7DD2;"></div>
+        <h3 class="feature-card__title">テレワーク可求人 特集</h3>
+        <div class="feature-card__count">8,920件</div>
+        <p class="feature-card__desc">フルリモートやハイブリッド勤務OKの求人を集めました。働く場所を選ばないライフスタイルを実現しましょう。</p>
+        <div class="feature-card__tags">
+          <span class="feature-card__tag">フルリモート</span>
+          <span class="feature-card__tag">ハイブリッド</span>
+          <span class="feature-card__tag">週3〜4在宅</span>
+        </div>
+        <a href="#" class="feature-card__link">すべて見る →</a>
+      </div>
+
+      <!-- 特集カード 3 -->
+      <div class="feature-card">
+        <img class="feature-card__img" src="images/feature-beginner.webp" alt="未経験歓迎特集">
+        <div class="feature-card__accent" style="background:#38A169;"></div>
+        <h3 class="feature-card__title">未経験歓迎 特集</h3>
+        <div class="feature-card__count">5,104件</div>
+        <p class="feature-card__desc">業界・職種未経験でも応募できる求人が満載。研修制度が充実した企業へのキャリアチェンジを全力支援。</p>
+        <div class="feature-card__tags">
+          <span class="feature-card__tag">研修充実</span>
+          <span class="feature-card__tag">第二新卒</span>
+          <span class="feature-card__tag">キャリアチェンジ</span>
+        </div>
+        <a href="#" class="feature-card__link">すべて見る →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== S04: 注目企業の求人 =====
+     .job-card を追加・削除することで求人数を調整できる。
+     企業ロゴは .job-card__logo 内に img タグを追加して差し替える。 -->
+<section class="pickup section--bg-white">
+  <div class="pickup__inner">
+    <h2 class="section__title section__title--center">注目企業の求人</h2>
+    <p class="section__subtitle section__subtitle--center">各業界を代表する企業の求人を厳選してご紹介</p>
+    <div class="pickup__grid">
+
+      <div class="job-card">
+        <div class="job-card__logo">ロゴ</div>
+        <h3 class="job-card__title">シニアエンジニア（バックエンド）</h3>
+        <p class="job-card__company">株式会社テクノロジーソリューションズ</p>
+        <div class="job-card__meta">
+          <span class="job-card__tag">年収 600〜900万円</span>
+          <span class="job-card__tag">東京・フルリモート可</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-card__logo">ロゴ</div>
+        <h3 class="job-card__title">マーケティングマネージャー</h3>
+        <p class="job-card__company">グローバルコンシューマー株式会社</p>
+        <div class="job-card__meta">
+          <span class="job-card__tag">年収 550〜800万円</span>
+          <span class="job-card__tag">渋谷・週2在宅</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-card__logo">ロゴ</div>
+        <h3 class="job-card__title">営業部長候補（法人向け）</h3>
+        <p class="job-card__company">フィナンシャルパートナーズ株式会社</p>
+        <div class="job-card__meta">
+          <span class="job-card__tag">年収 700〜1,000万円</span>
+          <span class="job-card__tag">大手町</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-card__logo">ロゴ</div>
+        <h3 class="job-card__title">プロダクトデザイナー</h3>
+        <p class="job-card__company">デジタルイノベーション株式会社</p>
+        <div class="job-card__meta">
+          <span class="job-card__tag">年収 500〜750万円</span>
+          <span class="job-card__tag">新宿・フルリモート可</span>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top: 24px;">
+      <a href="#" class="pickup__more">すべての求人を見る →</a>
+    </div>
+    <div class="section-cta">
+      <a href="register.html" class="section-cta__btn">無料で会員登録する →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S05: こだわり条件タイル =====
+     アイコン + ラベルのカードを4列グリッドで並べる。
+     タイルの追加・削除は .theme-tile ブロックを増減するだけ。 -->
+<section class="theme section--bg-light">
+  <div class="theme__inner">
+    <h2 class="section__title section__title--center">こだわり条件で探す</h2>
+    <div class="theme__grid">
+      <div class="theme-tile"><span class="theme-tile__icon">🏠</span><span class="theme-tile__label">テレワーク・在宅可</span></div>
+      <div class="theme-tile"><span class="theme-tile__icon">💰</span><span class="theme-tile__label">年収600万以上</span></div>
+      <div class="theme-tile"><span class="theme-tile__icon">🏢</span><span class="theme-tile__label">上場企業</span></div>
+      <div class="theme-tile"><span class="theme-tile__icon">🌱</span><span class="theme-tile__label">未経験歓迎</span></div>
+      <div class="theme-tile"><span class="theme-tile__icon">👩</span><span class="theme-tile__label">女性が活躍</span></div>
+      <div class="theme-tile"><span class="theme-tile__icon">📍</span><span class="theme-tile__label">転勤なし</span></div>
+      <div class="theme-tile"><span class="theme-tile__icon">📅</span><span class="theme-tile__label">土日祝休み</span></div>
+      <div class="theme-tile"><span class="theme-tile__icon">🎓</span><span class="theme-tile__label">第二新卒歓迎</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S06: 新着求人 =====
+     .job-row を追加することで表示件数を増やせる。
+     SP では年収 (.job-row__salary) と更新日 (.job-row__date) が非表示になる。 -->
+<section class="newjobs section--bg-white">
+  <div class="newjobs__inner">
+    <h2 class="newjobs__title">新着求人 <span style="font-family:var(--font-en); color:var(--color-secondary);">1,240件</span>（本日更新）</h2>
+    <div class="newjobs__list">
+      <div class="job-row">
+        <div class="job-row__title">Webディレクター（ECサイト担当）</div>
+        <div class="job-row__company">株式会社デジタルリテール</div>
+        <div class="job-row__salary">450〜600万円</div>
+        <div class="job-row__location">東京・渋谷</div>
+        <div class="job-row__date">本日</div>
+      </div>
+      <div class="job-row">
+        <div class="job-row__title">ITコンサルタント（DX推進）</div>
+        <div class="job-row__company">コンサルティングパートナーズ株式会社</div>
+        <div class="job-row__salary">600〜900万円</div>
+        <div class="job-row__location">東京・港区</div>
+        <div class="job-row__date">本日</div>
+      </div>
+      <div class="job-row">
+        <div class="job-row__title">人事・採用マネージャー</div>
+        <div class="job-row__company">グロース株式会社</div>
+        <div class="job-row__salary">500〜700万円</div>
+        <div class="job-row__location">大阪・梅田</div>
+        <div class="job-row__date">本日</div>
+      </div>
+      <div class="job-row">
+        <div class="job-row__title">モバイルエンジニア（iOS/Android）</div>
+        <div class="job-row__company">スマートアプリ株式会社</div>
+        <div class="job-row__salary">550〜800万円</div>
+        <div class="job-row__location">フルリモート</div>
+        <div class="job-row__date">本日</div>
+      </div>
+      <div class="job-row">
+        <div class="job-row__title">経理・財務スタッフ（上場企業）</div>
+        <div class="job-row__company">プレミアムホールディングス株式会社</div>
+        <div class="job-row__salary">380〜520万円</div>
+        <div class="job-row__location">東京・丸の内</div>
+        <div class="job-row__date">本日</div>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a href="register.html" class="section-cta__btn">無料登録して新着求人を受け取る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S07: 職種・業種・エリアから探す =====
+     タブ切り替えは js/index.js で制御。
+     .tab-btn の data-tab と .tab-content の id が一致している必要がある。
+     タブの追加時はボタンとパネルをセットで追加する。 -->
+<section class="category section--bg-light">
+  <div class="category__inner">
+    <h2 class="section__title section__title--center">職種・業種・エリアから探す</h2>
+    <!-- タブボタン: data-tab の値と対応するパネルの id を一致させる -->
+    <div class="tab-bar">
+      <button class="tab-btn is-active" data-tab="tab-job">職種別</button>
+      <button class="tab-btn" data-tab="tab-industry">業種別</button>
+      <button class="tab-btn" data-tab="tab-area">エリア別</button>
+    </div>
+    <!-- 職種タブパネル -->
+    <div id="tab-job" class="tab-content is-active">
+      <div class="category__grid">
+        <div class="category-tile">営業</div>
+        <div class="category-tile">ITエンジニア</div>
+        <div class="category-tile">事務・アシスタント</div>
+        <div class="category-tile">マーケティング</div>
+        <div class="category-tile">企画・経営</div>
+        <div class="category-tile">コンサルタント</div>
+        <div class="category-tile">医療・介護</div>
+        <div class="category-tile">クリエイティブ</div>
+      </div>
+    </div>
+    <!-- 業種タブパネル -->
+    <div id="tab-industry" class="tab-content">
+      <div class="category__grid">
+        <div class="category-tile">IT・通信</div>
+        <div class="category-tile">金融・保険</div>
+        <div class="category-tile">メーカー</div>
+        <div class="category-tile">医療・製薬</div>
+        <div class="category-tile">商社</div>
+        <div class="category-tile">不動産・建設</div>
+        <div class="category-tile">サービス業</div>
+        <div class="category-tile">コンサル</div>
+      </div>
+    </div>
+    <!-- エリアタブパネル -->
+    <div id="tab-area" class="tab-content">
+      <div class="category__grid">
+        <div class="category-tile">東京</div>
+        <div class="category-tile">大阪</div>
+        <div class="category-tile">愛知</div>
+        <div class="category-tile">神奈川</div>
+        <div class="category-tile">福岡</div>
+        <div class="category-tile">北海道</div>
+        <div class="category-tile">京都</div>
+        <div class="category-tile">リモート</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S08: 転職ノウハウ =====
+     .knowhow-card を追加することで記事カードを増やせる。3列グリッドのため3の倍数が収まりよい。 -->
+<section class="knowhow section--bg-white">
+  <div class="knowhow__inner">
+    <h2 class="section__title section__title--center">転職をはじめて考える方へ</h2>
+    <p class="section__subtitle section__subtitle--center">まずは情報収集から。あなたのペースで進めましょう。</p>
+    <div class="knowhow__grid">
+      <div class="knowhow-card">
+        <div class="knowhow-card__icon">📋</div>
+        <h3 class="knowhow-card__title">転職活動の進め方 4ステップ</h3>
+        <p class="knowhow-card__desc">「いつから始めるべき？」「何をすればいい？」転職活動の全体像と正しい順番をわかりやすく解説します。</p>
+        <a href="#" class="knowhow-card__link">読む →</a>
+      </div>
+      <div class="knowhow-card">
+        <div class="knowhow-card__icon">📝</div>
+        <h3 class="knowhow-card__title">履歴書・職務経歴書の書き方ガイド</h3>
+        <p class="knowhow-card__desc">採用担当者が実際に見るポイントを押さえた、通過率が上がる書き方のコツを徹底解説します。</p>
+        <a href="#" class="knowhow-card__link">読む →</a>
+      </div>
+      <div class="knowhow-card">
+        <div class="knowhow-card__icon">🎤</div>
+        <h3 class="knowhow-card__title">面接でよく聞かれること 10選</h3>
+        <p class="knowhow-card__desc">「志望動機は？」「強みは何ですか？」頻出質問への答え方と、面接官に刺さる自己アピール法を紹介。</p>
+        <a href="#" class="knowhow-card__link">読む →</a>
+      </div>
+    </div>
+    <div class="section-cta">
+      <a href="register.html" class="section-cta__btn">まずは無料登録して求人を見てみる →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== S09: クロージングCTA =====
+     ページ末尾の最終登録促進エリア。背景は primary ネイビー。
+     ボタンテキストや補足文の変更はここで行う。 -->
+<section class="closing-cta">
+  <div class="closing-cta__inner">
+    <h2 class="closing-cta__title">あなたの転職、キャリアナビが全力でサポートします。</h2>
+    <p class="closing-cta__sub">登録無料・スカウト機能あり・退会いつでも可</p>
+    <a href="register.html" class="closing-cta__btn">簡単1分 無料で会員登録する →</a>
+    <div class="closing-cta__sns">
+      <a href="#" class="closing-cta__sns-btn">G &nbsp;Googleで登録</a>
+      <a href="#" class="closing-cta__sns-btn">Y! &nbsp;Yahoo!で登録</a>
+    </div>
+    <p class="closing-cta__note">登録は無料です。個人情報は厳重に管理されます。</p>
+  </div>
+</section>
+
+<!-- ===== S10: フッター =====
+     リンクは .footer__links 内の <a> タグを編集。
+     SNS アイコンは .footer__sns-link 内のテキスト・絵文字を変更。 -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__logo">CareerNavi</div>
+        <p class="footer__tagline">あなたの次のキャリアへ、確実な一歩を。</p>
+      </div>
+      <div class="footer__links">
+        <a href="#" class="footer__link">求人を探す</a>
+        <a href="register.html" class="footer__link">会員登録</a>
+        <a href="#" class="footer__link">ログイン</a>
+        <a href="#" class="footer__link">転職ノウハウ</a>
+        <a href="#" class="footer__link">よくある質問</a>
+        <a href="#" class="footer__link">お問い合わせ</a>
+        <a href="#" class="footer__link">会社概要</a>
+        <a href="#" class="footer__link">利用規約</a>
+        <a href="#" class="footer__link">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__sns">
+        <a href="#" class="footer__sns-link">𝕏</a>
+        <a href="#" class="footer__sns-link">📷</a>
+        <a href="#" class="footer__sns-link">💬</a>
+      </div>
+      <p class="footer__copy">© 2026 CareerNavi All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JS 読み込み: common.js（全ページ共通）→ index.js（このページ固有） -->
+<script src="js/common.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

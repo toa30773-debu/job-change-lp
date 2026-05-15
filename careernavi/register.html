@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料会員登録｜キャリアナビ</title>
+  <!-- Google Fonts: 日本語フォント (Noto Sans JP) と英字フォント (Inter) を読み込む -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- CSS 読み込み順: reset → variables → common → register（ページ固有） -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+<!-- ヘッダー: 登録ページなので「無料で会員登録」ボタンは非活性 (opacity:0.5 + pointer-events:none) -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">CareerNavi</a>
+    <nav class="header__nav">
+      <a href="#" class="header__login">ログイン</a>
+      <a href="register.html" class="btn btn--primary" style="opacity:.5; pointer-events:none;">無料で会員登録</a>
+      <a href="#" class="header__corp">法人の方はこちら</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ページヒーローバナー: タイトルと説明文を変更する場合はここを編集 -->
+<div class="reg-hero">
+  <div>
+    <p class="reg-hero__step">かんたん登録</p>
+    <h1 class="reg-hero__title">無料会員登録</h1>
+    <p class="reg-hero__sub">登録は簡単1分・完全無料でご利用いただけます</p>
+  </div>
+</div>
+
+<!-- ===== メインコンテンツ =====
+     2列グリッド: 左列に登録フォーム、右列にメリット説明 (register.css の reg-main__inner 参照)。
+     SP では1列になりメリット列がフォームの下に移動する。 -->
+<main class="reg-main">
+  <div class="reg-main__inner">
+
+    <!-- ===== 登録フォームカード ===== -->
+    <div class="reg-form-card">
+      <h2 class="reg-form-card__title">アカウントを作成する</h2>
+      <p class="reg-form-card__login-hint">すでにアカウントをお持ちの方は <a href="#">ログイン →</a></p>
+
+      <!-- SNS 登録ボタン: ボタンの順番変更は HTML 内の並び順を入れ替えるだけ -->
+      <div class="sns-btns">
+        <button class="sns-btn" type="button">
+          <span class="sns-btn__icon">G</span>Googleで登録
+        </button>
+        <button class="sns-btn" type="button">
+          <span class="sns-btn__icon">Y!</span>Yahoo! JAPANで登録
+        </button>
+      </div>
+
+      <!-- 「または」区切り線 -->
+      <div class="divider">または</div>
+
+      <!-- ===== 登録フォーム =====
+           action="complete.html" はデモ用。本番では API エンドポイントに変更する。
+           バリデーションは末尾の <script> ブロックで実装している。 -->
+      <form class="form" id="registerForm" action="complete.html" method="get">
+
+        <!-- 氏名（姓・名 横並び） -->
+        <div class="form-group form-group--row">
+          <div class="form-group">
+            <label class="form-label" for="lastName">姓</label>
+            <input class="form-input" type="text" id="lastName" name="lastName" placeholder="山田">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="firstName">名</label>
+            <input class="form-input" type="text" id="firstName" name="firstName" placeholder="太郎">
+          </div>
+        </div>
+
+        <!-- メールアドレス（必須） -->
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス
+            <span class="form-label__required">必須</span>
+          </label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="example@careernavi.jp" required>
+        </div>
+
+        <!-- パスワード（必須）: 👁 ボタンで表示切り替え (末尾の script で実装) -->
+        <div class="form-group">
+          <label class="form-label" for="password">
+            パスワード
+            <span class="form-label__required">必須</span>
+          </label>
+          <div class="password-wrapper">
+            <input class="form-input form-input--password" type="password" id="password" name="password" placeholder="8文字以上の英数字" required>
+            <button type="button" class="password-toggle" id="passwordToggle" aria-label="パスワードを表示">👁</button>
+          </div>
+          <p class="form-hint">8文字以上・英字と数字を含めてください</p>
+        </div>
+
+        <!-- 生年月日: 年・月・日の3セレクトボックス -->
+        <div class="form-group">
+          <label class="form-label">生年月日</label>
+          <div class="form-group--dob">
+            <select class="form-select" name="birthYear" aria-label="年">
+              <option value="">年</option>
+              <option>2000</option><option>1999</option><option>1998</option>
+              <option>1997</option><option>1996</option><option>1995</option>
+              <option>1994</option><option>1993</option><option>1992</option>
+              <option>1991</option><option>1990</option><option>1985</option>
+              <option>1980</option><option>1975</option><option>1970</option>
+            </select>
+            <select class="form-select" name="birthMonth" aria-label="月">
+              <option value="">月</option>
+              <option>1</option><option>2</option><option>3</option>
+              <option>4</option><option>5</option><option>6</option>
+              <option>7</option><option>8</option><option>9</option>
+              <option>10</option><option>11</option><option>12</option>
+            </select>
+            <select class="form-select" name="birthDay" aria-label="日">
+              <option value="">日</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+              <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+              <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+              <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+              <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+              <option>31</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 現在の就業状況（必須）: ラジオボタン4択 -->
+        <div class="form-group">
+          <label class="form-label">
+            現在の就業状況
+            <span class="form-label__required">必須</span>
+          </label>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="workStatus" value="employed_considering"> 在職中（転職検討）
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="workStatus" value="employed_immediate"> 在職中（すぐに転職したい）
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="workStatus" value="unemployed"> 離職中
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="workStatus" value="student"> 学生
+            </label>
+          </div>
+        </div>
+
+        <!-- 希望職種: セレクトボックス。選択肢の追加は option タグを追加 -->
+        <div class="form-group">
+          <label class="form-label" for="desiredJob">希望職種</label>
+          <select class="form-select" id="desiredJob" name="desiredJob">
+            <option value="">選択してください</option>
+            <option>営業</option>
+            <option>ITエンジニア</option>
+            <option>事務・アシスタント</option>
+            <option>マーケティング</option>
+            <option>企画・経営</option>
+            <option>コンサルタント</option>
+            <option>クリエイティブ</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <!-- 利用規約・プライバシーポリシー同意チェックボックス -->
+        <div class="form-group">
+          <label class="agree-row">
+            <input type="checkbox" name="agree">
+            <span><a href="#">利用規約</a>および<a href="#">プライバシーポリシー</a>に同意します</span>
+          </label>
+        </div>
+
+        <!-- 送信ボタン: バリデーション通過後に complete.html へ遷移 -->
+        <button type="submit" class="submit-btn">無料で会員登録する →</button>
+        <p class="form-footer-link">すでにアカウントをお持ちの方 → <a href="#">ログインはこちら</a></p>
+
+      </form>
+    </div>
+
+    <!-- ===== メリット列（右カラム）===== -->
+    <aside class="reg-merit">
+      <h3 class="reg-merit__title">キャリアナビに登録すると</h3>
+      <!-- メリット項目: .merit-item ブロックを追加・削除して項目数を調整 -->
+      <ul class="merit-list">
+        <li class="merit-item">
+          <div class="merit-item__icon">✓</div>
+          <div class="merit-item__content">
+            <p class="merit-item__title">120,000件以上の求人を閲覧</p>
+            <p class="merit-item__desc">非公開求人を含む豊富な求人からあなたに合った仕事を探せます</p>
+          </div>
+        </li>
+        <li class="merit-item">
+          <div class="merit-item__icon">✓</div>
+          <div class="merit-item__content">
+            <p class="merit-item__title">専任アドバイザーによる無料サポート</p>
+            <p class="merit-item__desc">転職のプロが応募書類の作成から面接対策まで完全サポート</p>
+          </div>
+        </li>
+        <li class="merit-item">
+          <div class="merit-item__icon">✓</div>
+          <div class="merit-item__content">
+            <p class="merit-item__title">スカウト機能で企業からオファーが届く</p>
+            <p class="merit-item__desc">プロフィールを登録するだけで、企業から直接オファーを受け取れます</p>
+          </div>
+        </li>
+        <li class="merit-item">
+          <div class="merit-item__icon">✓</div>
+          <div class="merit-item__content">
+            <p class="merit-item__title">転職ノウハウ・ガイドが読み放題</p>
+            <p class="merit-item__desc">履歴書の書き方から面接対策まで、豊富なコンテンツを無料で閲覧可能</p>
+          </div>
+        </li>
+      </ul>
+
+      <hr class="merit-divider">
+
+      <div class="security-badge">
+        <p>🔒 SSL暗号化通信で安全に登録できます</p>
+        <p>個人情報は厳重に管理されます</p>
+      </div>
+
+      <div class="reg-stat">
+        <div class="reg-stat__number">500,000人+</div>
+        <div class="reg-stat__label">累計登録者数</div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- フッター（common.css で定義）-->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__logo">CareerNavi</div>
+        <p class="footer__tagline">あなたの次のキャリアへ、確実な一歩を。</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html" class="footer__link">求人を探す</a>
+        <a href="register.html" class="footer__link">会員登録</a>
+        <a href="#" class="footer__link">ログイン</a>
+        <a href="#" class="footer__link">転職ノウハウ</a>
+        <a href="#" class="footer__link">よくある質問</a>
+        <a href="#" class="footer__link">お問い合わせ</a>
+        <a href="#" class="footer__link">会社概要</a>
+        <a href="#" class="footer__link">利用規約</a>
+        <a href="#" class="footer__link">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__sns">
+        <a href="#" class="footer__sns-link">𝕏</a>
+        <a href="#" class="footer__sns-link">📷</a>
+        <a href="#" class="footer__sns-link">💬</a>
+      </div>
+      <p class="footer__copy">© 2026 CareerNavi All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+
+<!-- パスワード表示切り替え: 👁 ボタンをクリックするたびに type を password ↔ text で切り替える -->
+<script>
+document.getElementById('passwordToggle').addEventListener('click', function() {
+  const pwd = document.getElementById('password');
+  pwd.type = pwd.type === 'password' ? 'text' : 'password';
+});
+</script>
+
+<!-- ===== フォームバリデーション =====
+     送信前にメール形式・パスワード強度・就業状況・同意チェックを検証する。
+     本番API実装時はここのバリデーションに加えてサーバー側でも検証すること。 -->
+<script>
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const workStatus = document.querySelector('input[name="workStatus"]:checked');
+  const agree = document.querySelector('input[name="agree"]');
+
+  // メールアドレス形式チェック
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('メールアドレスの形式が正しくありません。');
+    return;
+  }
+
+  // パスワード強度チェック: 8文字以上・英字含む・数字含む
+  if (password.length < 8 || !/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
+    alert('パスワードは8文字以上で、英字と数字を含めてください。');
+    return;
+  }
+
+  // 就業状況の選択チェック
+  if (!workStatus) {
+    alert('現在の就業状況を選択してください。');
+    return;
+  }
+
+  // 利用規約同意チェック
+  if (!agree.checked) {
+    alert('利用規約とプライバシーポリシーに同意してください。');
+    return;
+  }
+
+  // すべてのバリデーションを通過したら完了ページへ遷移
+  window.location.href = 'complete.html';
+});
+</script>
+</body>
+</html>

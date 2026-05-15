@@ -1,0 +1,149 @@
+/* ===== 登録完了ページ =====
+   画面中央に完了カードを1枚表示するシンプルなレイアウト。
+   min-height の計算: 100vh からヘッダー(72px)とフッター(約300px)を引いた値で
+   コンテンツが短くてもフッターが浮かないようにする。 */
+.complete-main {
+  min-height: calc(100vh - 72px - 300px);
+  background: var(--color-bg-light);
+  padding: 80px 0;
+  margin-top: 72px; /* 固定ヘッダーの高さ分だけ下にずらす */
+  display: flex;
+  align-items: center; /* カードを垂直方向に中央揃え */
+}
+
+/* カードの最大幅を 640px に固定して中央揃え */
+.complete__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+/* 完了メッセージカード本体 */
+.complete__card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 64px 48px;
+}
+
+/* チェックマークアイコンの丸背景 */
+.complete__icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(56, 161, 105, 0.1); /* success 色を薄くした背景 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 40px;
+}
+
+.complete__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.complete__sub {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* 「次にやること」ステップ一覧の囲み */
+.complete__steps {
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.complete__steps-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.complete__step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ステップ1行: 番号バッジ + テキストを横並び */
+.complete__step-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+/* 番号バッジ（青丸）*/
+.complete__step-num {
+  width: 28px;
+  height: 28px;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0; /* テキストが長くなっても番号バッジのサイズを維持 */
+}
+
+/* 「求人を探す」CTAボタン（オレンジ）*/
+.complete__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 17px;
+  font-weight: 700;
+  height: 56px;
+  border-radius: var(--radius-md);
+  width: 100%;
+  transition: opacity var(--transition), transform var(--transition);
+  margin-bottom: 16px;
+}
+
+.complete__btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* 「トップページに戻る」テキストリンク */
+.complete__back {
+  font-size: 14px;
+  color: var(--color-secondary);
+  font-weight: 700;
+  transition: color var(--transition);
+}
+
+.complete__back:hover {
+  color: var(--color-primary);
+}
+
+/* ===== レスポンシブ (〜768px) ===== */
+@media (max-width: 768px) {
+  .complete-main {
+    padding: 40px 0;
+  }
+
+  .complete__card {
+    padding: 40px 24px;
+  }
+
+  .complete__title {
+    font-size: 24px;
+  }
+}

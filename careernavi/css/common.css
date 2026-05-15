@@ -1,0 +1,309 @@
+/* ===== ヘッダー =====
+   固定ヘッダー (position: fixed)。高さ 72px はサイト全体で共通の基準値。
+   スクロール時に is-scrolled クラスが JS から付与されて影が出る。 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 72px; /* この値を変えたら index.css の padding-top: 72px も合わせて変更 */
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  transition: box-shadow var(--transition);
+}
+
+/* スクロール時に JS で付与されるクラス */
+.header.is-scrolled {
+  box-shadow: var(--shadow-header);
+}
+
+.header__inner {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 120px; /* SP では 0 16px に上書き */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-family: var(--font-en);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__login {
+  font-size: 14px;
+  color: var(--color-text);
+  transition: color var(--transition);
+}
+
+.header__login:hover {
+  color: var(--color-secondary);
+}
+
+.header__corp {
+  font-size: 14px;
+  color: var(--color-text);
+  transition: color var(--transition);
+}
+
+.header__corp:hover {
+  color: var(--color-secondary);
+}
+
+/* ===== ボタン =====
+   .btn--primary（オレンジ）: CTA・会員登録など主要アクション
+   .btn--secondary（ブルー）: サブアクション
+   .btn--large: フッターCTAなど大きいボタンに追加するモディファイア */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  transition: opacity var(--transition), transform var(--transition);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-white);
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.btn--large {
+  padding: 17px 32px;
+  font-size: 18px;
+  border-radius: var(--radius-md);
+}
+
+/* ===== フッター ===== */
+.footer {
+  background: var(--color-footer-bg);
+  color: var(--color-white);
+  padding: 60px 0 32px;
+}
+
+.footer__inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 120px;
+}
+
+.footer__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  margin-bottom: 48px;
+}
+
+.footer__logo {
+  font-family: var(--font-en);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.footer__tagline {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* リンクを3列グリッドで並べる。列数を変えるには grid-template-columns を修正 */
+.footer__links {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px 40px;
+  flex: 1;
+}
+
+.footer__link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--color-white);
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__sns {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__sns-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background var(--transition);
+}
+
+.footer__sns-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.footer__copy {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== セクション共通CTAバー =====
+   各セクション末尾に配置するオレンジのCTAボタン。
+   マージンやフォントサイズを変更したい場合はここを編集。 */
+.section-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.section-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 18px 40px;
+  border-radius: var(--radius-md);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.section-cta__btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+/* ===== コンテナ =====
+   PC左右余白を持つ汎用ラッパー。ページ固有の__inner では個別に定義している。 */
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 120px;
+}
+
+/* ===== セクション共通 =====
+   .section--bg-light / .section--bg-white で交互に背景を切り替えている。 */
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section--bg-light {
+  background: var(--color-bg-light);
+}
+
+.section--bg-white {
+  background: var(--color-white);
+}
+
+/* セクション見出し (h2): 40px PC / 26px SP */
+.section__title {
+  font-family: var(--font-ja);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.section__title--center {
+  text-align: center;
+}
+
+.section__subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-top: 12px;
+}
+
+.section__subtitle--center {
+  text-align: center;
+}
+
+/* ===== レスポンシブ (〜768px) ===== */
+@media (max-width: 768px) {
+  .header__inner {
+    padding: 0 16px;
+  }
+
+  /* SP ではヘッダーナビを非表示（ハンバーガーメニューが必要な場合は JS と合わせて実装） */
+  .header__nav {
+    display: none;
+  }
+
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .footer__inner {
+    padding: 0 16px;
+  }
+
+  .footer__top {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* SP では2列に変更 */
+  .footer__links {
+    grid-template-columns: repeat(2, auto);
+    gap: 12px 24px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .section {
+    padding: var(--section-padding-sp) 0;
+  }
+
+  .section__title {
+    font-size: 26px;
+  }
+}

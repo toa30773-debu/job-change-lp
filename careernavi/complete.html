@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登録完了｜キャリアナビ</title>
+  <!-- Google Fonts: 日本語フォント (Noto Sans JP) と英字フォント (Inter) を読み込む -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- CSS 読み込み順: reset → variables → common → complete（ページ固有） -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/complete.css">
+</head>
+<body>
+
+<!-- ヘッダー: 登録完了後なので「会員登録」ボタンは非表示、「マイページ」を表示 -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">CareerNavi</a>
+    <nav class="header__nav">
+      <a href="#" class="header__login">マイページ</a>
+      <a href="#" class="header__corp">法人の方はこちら</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== 登録完了エリア =====
+     画面中央に完了カードを1枚表示するシンプルなレイアウト。
+     カードの内容変更はすべてこのブロック内で完結する。 -->
+<main class="complete-main">
+  <div class="complete__inner">
+    <div class="complete__card">
+
+      <!-- 完了アイコン（チェックマーク絵文字）-->
+      <div class="complete__icon">✅</div>
+
+      <!-- タイトル・本文メッセージ -->
+      <h1 class="complete__title">会員登録が完了しました！</h1>
+      <p class="complete__sub">
+        キャリアナビへようこそ。<br>
+        ご登録のメールアドレスに確認メールをお送りしました。<br>
+        さっそく求人を検索してみましょう。
+      </p>
+
+      <!-- 「次にやること」ステップ一覧: ステップ数の変更は .complete__step-item を追加・削除 -->
+      <div class="complete__steps">
+        <p class="complete__steps-title">次にやること</p>
+        <ul class="complete__step-list">
+          <li class="complete__step-item">
+            <span class="complete__step-num">1</span>
+            プロフィールを充実させてスカウトを受け取ろう
+          </li>
+          <li class="complete__step-item">
+            <span class="complete__step-num">2</span>
+            気になる求人を「お気に入り」に保存しよう
+          </li>
+          <li class="complete__step-item">
+            <span class="complete__step-num">3</span>
+            専任アドバイザーに相談してみよう（無料）
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTAボタン: 求人検索ページへ誘導 -->
+      <a href="index.html" class="complete__btn">求人を探す →</a>
+      <!-- テキストリンク: トップに戻る -->
+      <a href="index.html" class="complete__back">トップページに戻る</a>
+
+    </div>
+  </div>
+</main>
+
+<!-- フッター（common.css で定義）-->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__logo">CareerNavi</div>
+        <p class="footer__tagline">あなたの次のキャリアへ、確実な一歩を。</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html" class="footer__link">求人を探す</a>
+        <a href="register.html" class="footer__link">会員登録</a>
+        <a href="#" class="footer__link">ログイン</a>
+        <a href="#" class="footer__link">転職ノウハウ</a>
+        <a href="#" class="footer__link">よくある質問</a>
+        <a href="#" class="footer__link">お問い合わせ</a>
+        <a href="#" class="footer__link">会社概要</a>
+        <a href="#" class="footer__link">利用規約</a>
+        <a href="#" class="footer__link">プライバシーポリシー</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__sns">
+        <a href="#" class="footer__sns-link">𝕏</a>
+        <a href="#" class="footer__sns-link">📷</a>
+        <a href="#" class="footer__sns-link">💬</a>
+      </div>
+      <p class="footer__copy">© 2026 CareerNavi All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/common.js"></script>
+</body>
+</html>
