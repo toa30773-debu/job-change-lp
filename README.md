@@ -6,11 +6,22 @@
 
 ## デモ
 
-🔗 **[ライブデモを見る](https://ユーザー名.github.io/careernavi-lp/)**
+🔗 **[ライブデモを見る](https://toa30773-debu.github.io/job-change-lp/)**
 
+**LP（メインページ）**
+| PC版（1440px） | SP版（375px） |
+|---|---|
+| ![LP PC版](images/ss_lp_pc.png) | ![LP SP版](images/ss_lp_sp.png) |
+
+**会員登録ページ**
 | PC版 | SP版 |
-|------|------|
-| ![PC]("C:\Users\toa30\Downloads\screencapture-127-0-0-1-5500-careernavi-index-html-2026-05-15-21_20_44.png") | ![SP]("C:\Users\toa30\Downloads\screencapture-127-0-0-1-5500-careernavi-index-html-2026-05-15-21_21_14.png") |
+|---|---|
+| ![登録 PC版](images/ss_register_pc.png) | ![登録 SP版](images/ss_register_sp.png) |
+
+**登録完了ページ**
+| PC版 | SP版 |
+|---|---|
+| ![完了 PC版](images/ss_complete_pc.png) | ![完了 SP版](images/ss_complete_sp.png) |
 
 ---
 
@@ -117,3 +128,6 @@ careernavi-lp/
 # index.html を右クリック → Open with Live Server
 ```
 
+---
+
+*© 2026 Portfolio Work by toa*
