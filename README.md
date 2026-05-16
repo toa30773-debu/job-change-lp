@@ -46,6 +46,8 @@ Figmaでデザイン（Claude Codeを使用）
   ↓
 コーディング（Claude Codeを使用）
   ↓
+画像最適化（WebP変換）
+  ↓
 ブラウザ確認・調整
   ↓
 GitHub Pages 公開
@@ -91,6 +93,7 @@ GitHub Pages 公開
 | CSS3 | スタイリング（Grid・Flexbox・カスタムプロパティ） |
 | Vanilla JavaScript | タブ・スライダー・バリデーション |
 | Google Fonts | Noto Sans JP / Inter |
+| Node.js（sharp） | WebP一括変換 |
 | Figma | UIデザイン（PC・SPフレーム） |
 | Claude Code | デザイン生成・コーディング支援 |
 | GitHub Pages | ホスティング |
@@ -117,17 +120,4 @@ careernavi-lp/
   └── images/
 ```
 
----
-
-## ローカルで確認する
-
-サーバー不要。`index.html` をブラウザで直接開くだけで動作します。
-
-```bash
-# VS Code Live Server を使う場合
-# index.html を右クリック → Open with Live Server
-```
-
----
-
-*© 2026 Portfolio Work by toa*
+*Portfolio Work*
