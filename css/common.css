@@ -63,10 +63,39 @@
   color: var(--color-secondary);
 }
 
-/* ===== ボタン =====
-   .btn--primary（オレンジ）: CTA・会員登録など主要アクション
-   .btn--secondary（ブルー）: サブアクション
-   .btn--large: フッターCTAなど大きいボタンに追加するモディファイア */
+/* ===== ハンバーガーボタン =====
+   PC では非表示。SP で表示し、クリックで3本線→×にアニメーション。
+   開閉状態は JS が is-open クラスで管理する。 */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  padding: 0;
+}
+
+.header__hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 1px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* is-open 時に3本線を×へ変形 */
+.header__hamburger.is-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.header__hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.header__hamburger.is-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== ボタン ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -92,19 +121,6 @@
   color: var(--color-white);
   padding: 10px 20px;
   font-size: 15px;
-}
-
-.btn--secondary {
-  background: var(--color-secondary);
-  color: var(--color-white);
-  padding: 10px 20px;
-  font-size: 15px;
-}
-
-.btn--large {
-  padding: 17px 32px;
-  font-size: 18px;
-  border-radius: var(--radius-md);
 }
 
 /* ===== フッター ===== */
@@ -218,20 +234,8 @@
   transform: translateY(-2px);
 }
 
-/* ===== コンテナ =====
-   PC左右余白を持つ汎用ラッパー。ページ固有の__inner では個別に定義している。 */
-.container {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-  padding: 0 120px;
-}
-
 /* ===== セクション共通 =====
    .section--bg-light / .section--bg-white で交互に背景を切り替えている。 */
-.section {
-  padding: var(--section-padding) 0;
-}
-
 .section--bg-light {
   background: var(--color-bg-light);
 }
@@ -269,15 +273,37 @@
     padding: 0 16px;
   }
 
-  /* SP ではヘッダーナビを非表示（ハンバーガーメニューが必要な場合は JS と合わせて実装） */
+  /* SP: ハンバーガーボタンを表示 */
+  .header__hamburger {
+    display: flex;
+  }
+
+  /* SP: ナビは初期非表示。is-open クラスが付いたときだけドロップダウン表示 */
   .header__nav {
     display: none;
   }
 
-
-  .container {
-    padding: 0 16px;
+  .header__nav.is-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 72px; /* ヘッダー高さ分だけ下げる */
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    padding: 16px;
+    gap: 8px;
+    box-shadow: var(--shadow-header);
+    z-index: 999; /* ヘッダー(z-index:1000)の直下・ページコンテンツより前面 */
   }
+
+  /* メニュー内の登録ボタンをフル幅に */
+  .header__nav.is-open .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
 
   .footer__inner {
     padding: 0 16px;
@@ -297,10 +323,6 @@
   .footer__bottom {
     flex-direction: column;
     gap: 16px;
-  }
-
-  .section {
-    padding: var(--section-padding-sp) 0;
   }
 
   .section__title {

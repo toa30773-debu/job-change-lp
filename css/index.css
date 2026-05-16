@@ -257,25 +257,16 @@
   margin-bottom: 32px;
 }
 
-/* overflow-x: hidden でスクロールバーを隠しつつ、JS で scrollLeft を操作する */
+/* 横スクロールを排除し3列グリッドで全カードを静的表示 */
 .feature__slider {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  overflow-x: hidden;
-  padding-bottom: 8px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
-.feature__slider::-webkit-scrollbar {
-  display: none;
-}
-
-/* 特集カード: 幅 384px × 高さ 445px (Figma 仕様値) */
+/* 特集カード: 高さ 445px (Figma 仕様値)。幅はグリッドが制御 */
 .feature-card {
-  width: 384px;
   height: 445px;
-  flex-shrink: 0;
   position: relative;
   background: var(--color-white);
   border-radius: 12px;
@@ -313,7 +304,7 @@
   position: absolute;
   top: 192px;
   left: 20px;
-  width: 344px;
+  width: calc(100% - 40px); /* カード幅 - 左右マージン(20px × 2) */
   font-size: 18px;
   font-weight: 700;
   color: #1a1b2e;
@@ -337,7 +328,7 @@
   position: absolute;
   top: 261px;
   left: 20px;
-  width: 344px;
+  width: calc(100% - 40px); /* カード幅 - 左右マージン(20px × 2) */
   font-size: 14px;
   color: #595966;
   line-height: 1.7;
@@ -364,11 +355,11 @@
   white-space: nowrap;
 }
 
-/* 「すべて見る →」リンク: カード右下に配置 */
+/* 「すべて見る →」リンク: カード右下に配置。right 基準で幅に依存しない */
 .feature-card__link {
   position: absolute;
   top: 413px;
-  left: 284px;
+  right: 20px;
   font-size: 13px;
   color: var(--color-accent);
   transition: opacity var(--transition);
@@ -897,10 +888,6 @@
     font-size: 26px;
   }
 
-  .feature-card {
-    min-width: 280px;
-  }
-
   /* SP: 求人カードを1列に変更 */
   .pickup__grid {
     grid-template-columns: 1fr;
@@ -914,7 +901,6 @@
   /* SP: 新着求人リストを2列グリッドに変更（年収・日付は非表示） */
   .job-row {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
   }
 
   .job-row__salary,
@@ -950,5 +936,43 @@
 
   .closing-cta__sns {
     flex-direction: column;
+  }
+
+  /* セクション上下パディングをSP用に縮小 */
+  .feature,
+  .pickup,
+  .theme,
+  .newjobs,
+  .category,
+  .knowhow,
+  .closing-cta {
+    padding: var(--section-padding-sp) 0;
+  }
+
+  /* SP: 3列グリッドを1列に変更（カード幅・テキスト幅はデスクトップの calc で自動対応） */
+  .feature__slider {
+    grid-template-columns: 1fr;
+  }
+
+  /* 新着求人タイトルのフォントサイズ */
+  .newjobs__title {
+    font-size: 26px;
+  }
+
+  /* 統計数値のフォントサイズ */
+  .stat__number {
+    font-size: 28px;
+  }
+
+  /* 求人リスト: タイトルを2列フル幅に */
+  .job-row__title {
+    grid-column: 1 / -1;
+  }
+
+  /* ホバーマージンをSPパディング(16px)に合わせる */
+  .job-row:hover {
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
