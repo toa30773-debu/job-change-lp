@@ -6,7 +6,7 @@
 
 ## デモ
 
-🔗 **[ライブデモを見る](https://toa30773-debu.github.io/job-change-lp/)**
+🔗 **[ライブデモを見る](https://toa30773.github.io/job-change-lp/)**
 
 **LP（メインページ）**
 | PC版（1440px） | SP版（375px） |
