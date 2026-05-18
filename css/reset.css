@@ -1,16 +1,12 @@
-/* ===== リセットCSS =====
-   ブラウザ間のデフォルトスタイル差異を統一する基底ファイル。
-   このファイルは原則変更不要。 */
-
 *, *::before, *::after {
-  box-sizing: border-box; /* 幅・高さに padding と border を含める */
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-size: 16px; /* 1rem の基準値。変更するとサイト全体の文字サイズに影響 */
-  scroll-behavior: smooth; /* アンカーリンクへのスクロールをなめらかにする */
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -19,20 +15,20 @@ body {
 
 img, picture, video, canvas, svg {
   display: block;
-  max-width: 100%; /* 親要素からはみ出さないようにする */
+  max-width: 100%;
 }
 
 input, button, textarea, select {
-  font: inherit; /* フォームパーツのフォントを親要素から継承する */
+  font: inherit;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word; /* 長いURL・単語の自動折り返し */
+  overflow-wrap: break-word;
 }
 
 a {
   text-decoration: none;
-  color: inherit; /* リンクの文字色を親要素から継承する */
+  color: inherit;
 }
 
 ul, ol {

@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>キャリアナビ｜転職求人サイト</title>
-  <!-- Google Fonts: 日本語フォント (Noto Sans JP) と英字フォント (Inter) を読み込む -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=optional" rel="stylesheet">
-  <!-- CSS 読み込み順: reset → variables（変数定義）→ common（共通部品）→ index（ページ固有） -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/common.css">
@@ -16,9 +14,6 @@
 </head>
 <body>
 
-<!-- ===== S01: ヘッダー =====
-     position: fixed で画面上部に固定。スクロール時に JS が is-scrolled クラスを付与して影を表示。
-     ヘッダー高さ (72px) は variables.css や各ページの margin-top と合わせている。 -->
 <header class="header" id="header">
   <div class="header__inner">
     <a href="index.html" class="header__logo">CareerNavi</a>
@@ -27,7 +22,6 @@
       <a href="register.html" class="btn btn--primary">無料で会員登録</a>
       <a href="#" class="header__corp">法人の方はこちら</a>
     </nav>
-    <!-- SP のみ表示するハンバーガーボタン。JS で is-open クラスを付け外しして開閉 -->
     <button class="header__hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false">
       <span></span>
       <span></span>
@@ -36,19 +30,13 @@
   </div>
 </header>
 
-<!-- ===== S02: ファーストビュー (FV) =====
-     hero-bg.webp の上に CSS グラデーションオーバーレイを重ねている。
-     画像差し替えは images/hero-bg.webp を入れ替え、index.css の background-image も更新。
-     検索フォームとCTAボタン、実績統計バーを含む。 -->
 <section class="fv">
   <div class="fv__inner">
-    <!-- キャッチバッジ: 登録者数などの訴求文言 -->
     <span class="fv__badge">累計登録者数 500,000人突破</span>
     <h1 class="fv__title">あなたの次のキャリアへ、<br>確実な一歩を。</h1>
     <p class="fv__subtitle">専任アドバイザーが内定まで完全サポート</p>
     <p class="fv__count">掲載求人数 <strong>120,000件以上</strong>（非公開含む）</p>
 
-    <!-- 求人検索フォーム: キーワード入力・エリア選択・検索ボタンの3要素 -->
     <div class="fv__search">
       <input class="fv__search-input" type="text" placeholder="職種、会社名など">
       <div class="fv__search-divider"></div>
@@ -65,7 +53,6 @@
     </div>
     <a href="#" class="fv__search-link">詳細条件で探す →</a>
 
-    <!-- CTAエリア: メイン登録ボタン + Google・Yahoo! SNS登録ボタン -->
     <div class="fv__cta">
       <a href="register.html" class="fv__cta-btn">簡単1分 無料で会員登録する →</a>
       <div class="fv__sns-btns">
@@ -75,7 +62,6 @@
     </div>
   </div>
 
-  <!-- 実績統計バー: FV 下部に求人数・登録者数・転職成功率を表示 -->
   <div class="fv__stats">
     <div class="fv__stats-inner">
       <div class="stat">
@@ -94,16 +80,11 @@
   </div>
 </section>
 
-<!-- ===== S03: 特集スライダー =====
-     横スクロールカードが JS で自動ループする。
-     カードの追加・削除は .feature-card ブロックを増減するだけでOK。
-     スライド速度は js/index.js の speed 変数で調整。 -->
 <section class="feature">
   <div class="feature__inner">
     <h2 class="feature__title">今注目の特集</h2>
     <div class="feature__slider">
 
-      <!-- 特集カード 1: accent の background 色でアクセントバーの色を変える -->
       <div class="feature-card">
         <img class="feature-card__img" src="images/feature-salary.webp" alt="年収アップ転職特集">
         <div class="feature-card__accent" style="background:#F4A623;"></div>
@@ -118,7 +99,6 @@
         <a href="#" class="feature-card__link">すべて見る →</a>
       </div>
 
-      <!-- 特集カード 2 -->
       <div class="feature-card">
         <img class="feature-card__img" src="images/feature-remote.webp" alt="テレワーク可求人特集">
         <div class="feature-card__accent" style="background:#2D7DD2;"></div>
@@ -133,7 +113,6 @@
         <a href="#" class="feature-card__link">すべて見る →</a>
       </div>
 
-      <!-- 特集カード 3 -->
       <div class="feature-card">
         <img class="feature-card__img" src="images/feature-beginner.webp" alt="未経験歓迎特集">
         <div class="feature-card__accent" style="background:#38A169;"></div>
@@ -152,9 +131,6 @@
   </div>
 </section>
 
-<!-- ===== S04: 注目企業の求人 =====
-     .job-card を追加・削除することで求人数を調整できる。
-     企業ロゴは .job-card__logo 内に img タグを追加して差し替える。 -->
 <section class="pickup section--bg-white">
   <div class="pickup__inner">
     <h2 class="section__title section__title--center">注目企業の求人</h2>
@@ -202,7 +178,7 @@
       </div>
 
     </div>
-    <div style="text-align:center; margin-top: 24px;">
+    <div class="pickup__more-wrapper">
       <a href="#" class="pickup__more">すべての求人を見る →</a>
     </div>
     <div class="section-cta">
@@ -211,9 +187,6 @@
   </div>
 </section>
 
-<!-- ===== S05: こだわり条件タイル =====
-     アイコン + ラベルのカードを4列グリッドで並べる。
-     タイルの追加・削除は .theme-tile ブロックを増減するだけ。 -->
 <section class="theme section--bg-light">
   <div class="theme__inner">
     <h2 class="section__title section__title--center">こだわり条件で探す</h2>
@@ -230,9 +203,6 @@
   </div>
 </section>
 
-<!-- ===== S06: 新着求人 =====
-     .job-row を追加することで表示件数を増やせる。
-     SP では年収 (.job-row__salary) と更新日 (.job-row__date) が非表示になる。 -->
 <section class="newjobs section--bg-white">
   <div class="newjobs__inner">
     <h2 class="newjobs__title">新着求人 <span style="font-family:var(--font-en); color:var(--color-secondary);">1,240件</span>（本日更新）</h2>
@@ -279,20 +249,14 @@
   </div>
 </section>
 
-<!-- ===== S07: 職種・業種・エリアから探す =====
-     タブ切り替えは js/index.js で制御。
-     .tab-btn の data-tab と .tab-content の id が一致している必要がある。
-     タブの追加時はボタンとパネルをセットで追加する。 -->
 <section class="category section--bg-light">
   <div class="category__inner">
     <h2 class="section__title section__title--center">職種・業種・エリアから探す</h2>
-    <!-- タブボタン: data-tab の値と対応するパネルの id を一致させる -->
     <div class="tab-bar">
       <button class="tab-btn is-active" data-tab="tab-job">職種別</button>
       <button class="tab-btn" data-tab="tab-industry">業種別</button>
       <button class="tab-btn" data-tab="tab-area">エリア別</button>
     </div>
-    <!-- 職種タブパネル -->
     <div id="tab-job" class="tab-content is-active">
       <div class="category__grid">
         <div class="category-tile">営業</div>
@@ -305,7 +269,6 @@
         <div class="category-tile">クリエイティブ</div>
       </div>
     </div>
-    <!-- 業種タブパネル -->
     <div id="tab-industry" class="tab-content">
       <div class="category__grid">
         <div class="category-tile">IT・通信</div>
@@ -318,7 +281,6 @@
         <div class="category-tile">コンサル</div>
       </div>
     </div>
-    <!-- エリアタブパネル -->
     <div id="tab-area" class="tab-content">
       <div class="category__grid">
         <div class="category-tile">東京</div>
@@ -334,8 +296,6 @@
   </div>
 </section>
 
-<!-- ===== S08: 転職ノウハウ =====
-     .knowhow-card を追加することで記事カードを増やせる。3列グリッドのため3の倍数が収まりよい。 -->
 <section class="knowhow section--bg-white">
   <div class="knowhow__inner">
     <h2 class="section__title section__title--center">転職をはじめて考える方へ</h2>
@@ -366,9 +326,6 @@
   </div>
 </section>
 
-<!-- ===== S09: クロージングCTA =====
-     ページ末尾の最終登録促進エリア。背景は primary ネイビー。
-     ボタンテキストや補足文の変更はここで行う。 -->
 <section class="closing-cta">
   <div class="closing-cta__inner">
     <h2 class="closing-cta__title">あなたの転職、キャリアナビが全力でサポートします。</h2>
@@ -382,9 +339,6 @@
   </div>
 </section>
 
-<!-- ===== S10: フッター =====
-     リンクは .footer__links 内の <a> タグを編集。
-     SNS アイコンは .footer__sns-link 内のテキスト・絵文字を変更。 -->
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__top">
@@ -415,7 +369,6 @@
   </div>
 </footer>
 
-<!-- JS 読み込み: common.js（全ページ共通）→ index.js（このページ固有） -->
 <script src="js/common.js"></script>
 <script src="js/index.js"></script>
 </body>

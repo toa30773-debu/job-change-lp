@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>無料会員登録｜キャリアナビ</title>
-  <!-- Google Fonts: 日本語フォント (Noto Sans JP) と英字フォント (Inter) を読み込む -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=optional" rel="stylesheet">
-  <!-- CSS 読み込み順: reset → variables → common → register（ページ固有） -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/common.css">
@@ -16,16 +14,14 @@
 </head>
 <body>
 
-<!-- ヘッダー: 登録ページなので「無料で会員登録」ボタンは非活性 (opacity:0.5 + pointer-events:none) -->
 <header class="header" id="header">
   <div class="header__inner">
     <a href="index.html" class="header__logo">CareerNavi</a>
     <nav class="header__nav" id="headerNav">
       <a href="#" class="header__login">ログイン</a>
-      <a href="register.html" class="btn btn--primary" style="opacity:.5; pointer-events:none;">無料で会員登録</a>
+      <a href="register.html" class="btn btn--primary btn--disabled">無料で会員登録</a>
       <a href="#" class="header__corp">法人の方はこちら</a>
     </nav>
-    <!-- SP のみ表示するハンバーガーボタン。JS で is-open クラスを付け外しして開閉 -->
     <button class="header__hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false">
       <span></span>
       <span></span>
@@ -34,7 +30,6 @@
   </div>
 </header>
 
-<!-- ページヒーローバナー: タイトルと説明文を変更する場合はここを編集 -->
 <div class="reg-hero">
   <div>
     <p class="reg-hero__step">かんたん登録</p>
@@ -43,18 +38,13 @@
   </div>
 </div>
 
-<!-- ===== メインコンテンツ =====
-     2列グリッド: 左列に登録フォーム、右列にメリット説明 (register.css の reg-main__inner 参照)。
-     SP では1列になりメリット列がフォームの下に移動する。 -->
 <main class="reg-main">
   <div class="reg-main__inner">
 
-    <!-- ===== 登録フォームカード ===== -->
     <div class="reg-form-card">
       <h2 class="reg-form-card__title">アカウントを作成する</h2>
       <p class="reg-form-card__login-hint">すでにアカウントをお持ちの方は <a href="#">ログイン →</a></p>
 
-      <!-- SNS 登録ボタン: ボタンの順番変更は HTML 内の並び順を入れ替えるだけ -->
       <div class="sns-btns">
         <button class="sns-btn" type="button">
           <span class="sns-btn__icon">G</span>Googleで登録
@@ -64,27 +54,22 @@
         </button>
       </div>
 
-      <!-- 「または」区切り線 -->
       <div class="divider">または</div>
 
-      <!-- ===== 登録フォーム =====
-           action="complete.html" はデモ用。本番では API エンドポイントに変更する。
-           バリデーションは末尾の <script> ブロックで実装している。 -->
       <form class="form" id="registerForm" action="complete.html" method="get">
 
-        <!-- 氏名（姓・名 横並び） -->
-        <div class="form-group form-group--row">
-          <div class="form-group">
-            <label class="form-label" for="lastName">姓</label>
-            <input class="form-input" type="text" id="lastName" name="lastName" placeholder="山田">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="firstName">名</label>
-            <input class="form-input" type="text" id="firstName" name="firstName" placeholder="太郎">
+        <div class="form-group">
+          <label class="form-label">お名前<span class="form-label__required">必須</span></label>
+          <div class="form-group form-group--row">
+            <div class="form-group">
+              <input class="form-input" type="text" id="lastName" name="lastName" placeholder="山田" aria-label="姓" required>
+            </div>
+            <div class="form-group">
+              <input class="form-input" type="text" id="firstName" name="firstName" placeholder="太郎" aria-label="名" required>
+            </div>
           </div>
         </div>
 
-        <!-- メールアドレス（必須） -->
         <div class="form-group">
           <label class="form-label" for="email">
             メールアドレス
@@ -93,7 +78,6 @@
           <input class="form-input" type="email" id="email" name="email" placeholder="example@careernavi.jp" required>
         </div>
 
-        <!-- パスワード（必須）: 👁 ボタンで表示切り替え (末尾の script で実装) -->
         <div class="form-group">
           <label class="form-label" for="password">
             パスワード
@@ -106,7 +90,6 @@
           <p class="form-hint">8文字以上・英字と数字を含めてください</p>
         </div>
 
-        <!-- 生年月日: 年・月・日の3セレクトボックス -->
         <div class="form-group">
           <label class="form-label">生年月日</label>
           <div class="form-group--dob">
@@ -138,7 +121,6 @@
           </div>
         </div>
 
-        <!-- 現在の就業状況（必須）: ラジオボタン4択 -->
         <div class="form-group">
           <label class="form-label">
             現在の就業状況
@@ -160,7 +142,6 @@
           </div>
         </div>
 
-        <!-- 希望職種: セレクトボックス。選択肢の追加は option タグを追加 -->
         <div class="form-group">
           <label class="form-label" for="desiredJob">希望職種</label>
           <select class="form-select" id="desiredJob" name="desiredJob">
@@ -176,7 +157,6 @@
           </select>
         </div>
 
-        <!-- 利用規約・プライバシーポリシー同意チェックボックス -->
         <div class="form-group">
           <label class="agree-row">
             <input type="checkbox" name="agree">
@@ -184,17 +164,14 @@
           </label>
         </div>
 
-        <!-- 送信ボタン: バリデーション通過後に complete.html へ遷移 -->
         <button type="submit" class="submit-btn">無料で会員登録する →</button>
         <p class="form-footer-link">すでにアカウントをお持ちの方 → <a href="#">ログインはこちら</a></p>
 
       </form>
     </div>
 
-    <!-- ===== メリット列（右カラム）===== -->
     <aside class="reg-merit">
       <h3 class="reg-merit__title">キャリアナビに登録すると</h3>
-      <!-- メリット項目: .merit-item ブロックを追加・削除して項目数を調整 -->
       <ul class="merit-list">
         <li class="merit-item">
           <div class="merit-item__icon">✓</div>
@@ -242,7 +219,6 @@
   </div>
 </main>
 
-<!-- フッター（common.css で定義）-->
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__top">
@@ -275,7 +251,6 @@
 
 <script src="js/common.js"></script>
 
-<!-- パスワード表示切り替え: 👁 ボタンをクリックするたびに type を password ↔ text で切り替える -->
 <script>
 document.getElementById('passwordToggle').addEventListener('click', function() {
   const pwd = document.getElementById('password');
@@ -283,9 +258,6 @@ document.getElementById('passwordToggle').addEventListener('click', function() {
 });
 </script>
 
-<!-- ===== フォームバリデーション =====
-     送信前にメール形式・パスワード強度・就業状況・同意チェックを検証する。
-     本番API実装時はここのバリデーションに加えてサーバー側でも検証すること。 -->
 <script>
 document.getElementById('registerForm').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -295,32 +267,27 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
   const workStatus = document.querySelector('input[name="workStatus"]:checked');
   const agree = document.querySelector('input[name="agree"]');
 
-  // メールアドレス形式チェック
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     alert('メールアドレスの形式が正しくありません。');
     return;
   }
 
-  // パスワード強度チェック: 8文字以上・英字含む・数字含む
   if (password.length < 8 || !/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
     alert('パスワードは8文字以上で、英字と数字を含めてください。');
     return;
   }
 
-  // 就業状況の選択チェック
   if (!workStatus) {
     alert('現在の就業状況を選択してください。');
     return;
   }
 
-  // 利用規約同意チェック
   if (!agree.checked) {
     alert('利用規約とプライバシーポリシーに同意してください。');
     return;
   }
 
-  // すべてのバリデーションを通過したら完了ページへ遷移
   window.location.href = 'complete.html';
 });
 </script>

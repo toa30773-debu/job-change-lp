@@ -1,5 +1,3 @@
-/* ===== 登録ページ ヒーローバナー =====
-   ページ上部の帯状バナー。高さ・背景色・テキストはここで変更。 */
 .reg-hero {
   background: var(--color-primary);
   height: 160px;
@@ -28,9 +26,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ===== メインコンテンツ =====
-   2列グリッド: 左に登録フォーム (680px固定)、右にメリット説明。
-   SP では1列に変更（下のレスポンシブ参照）。 */
 .reg-main {
   background: var(--color-bg-light);
   padding: 80px 0;
@@ -41,14 +36,11 @@
   margin: 0 auto;
   padding: 0 120px;
   display: grid;
-  grid-template-columns: 680px 1fr; /* フォーム列は固定幅、メリット列は残り幅 */
+  grid-template-columns: 680px 1fr;
   gap: 80px;
   align-items: start;
 }
 
-/* ===== フォームカード =====
-   白背景のカードにフォームをまとめる。
-   内側の余白を変えたい場合は padding を編集。 */
 .reg-form-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -74,8 +66,6 @@
   font-weight: 700;
 }
 
-/* ===== SNSボタン（Google / Yahoo!）=====
-   ボタンを縦に積み上げる。順番の変更は HTML を編集。 */
 .sns-btns {
   display: flex;
   flex-direction: column;
@@ -108,9 +98,7 @@
   font-size: 20px;
 }
 
-/* ===== 区切り線「または」=====
-   ::before / ::after で左右に線を引いて「または」を囲む。
-   線の幅は width: 38% で調整。 */
+/* ::before / ::after で左右に線を引いて「または」を囲む */
 .divider {
   text-align: center;
   font-size: 14px;
@@ -132,9 +120,6 @@
 .divider::before { left: 0; }
 .divider::after { right: 0; }
 
-/* ===== フォームフィールド =====
-   .form-group を縦に積み上げる。
-   横並びにしたい場合は .form-group--row を使う（姓・名欄など）。 */
 .form {
   display: flex;
   flex-direction: column;
@@ -147,7 +132,6 @@
   gap: 8px;
 }
 
-/* 横並びグループ（姓・名など）: 子の .form-group が均等分割される */
 .form-group--row {
   flex-direction: row;
   gap: 16px;
@@ -166,7 +150,6 @@
   gap: 8px;
 }
 
-/* 「必須」バッジ: ラベル右に赤バッジを表示 */
 .form-label__required {
   background: var(--color-primary);
   color: var(--color-white);
@@ -175,7 +158,6 @@
   border-radius: 3px;
 }
 
-/* テキスト入力欄の共通スタイル */
 .form-input {
   height: 52px;
   border: 1px solid var(--color-border);
@@ -189,7 +171,6 @@
   width: 100%;
 }
 
-/* フォーカス時に青いリングを表示 */
 .form-input:focus {
   border-color: var(--color-secondary);
   box-shadow: 0 0 0 3px rgba(45, 125, 210, 0.12);
@@ -199,17 +180,14 @@
   color: #bbb;
 }
 
-/* パスワード表示切り替えボタン用の右パディング確保 */
 .form-input--password {
   padding-right: 48px;
 }
 
-/* パスワード欄のラッパー: 表示切り替えボタンを絶対配置する */
 .password-wrapper {
   position: relative;
 }
 
-/* 👁 アイコンボタン: パスワード表示切り替え */
 .password-toggle {
   position: absolute;
   right: 14px;
@@ -227,14 +205,12 @@
   color: var(--color-text);
 }
 
-/* 入力欄下の補足テキスト（例：「8文字以上・英字と数字を含めてください」） */
 .form-hint {
   font-size: 12px;
   color: #888;
 }
 
-/* セレクトボックスの共通スタイル。
-   SVG の矢印アイコンをインライン data URI で設定しているため appearance: none で標準矢印を非表示にする。 */
+/* SVGの矢印アイコンをインラインdata URIで設定しているためappearance: noneで標準矢印を非表示にする */
 .form-select {
   height: 52px;
   border: 1px solid var(--color-border);
@@ -257,15 +233,12 @@
   border-color: var(--color-secondary);
 }
 
-/* 生年月日: 年・月・日を 35% / 30% / 30% の3列グリッドで並べる */
 .form-group--dob {
   display: grid;
   grid-template-columns: 35% 30% 30%;
   gap: 8px;
 }
 
-/* ===== ラジオボタン（就業状況）=====
-   2列グリッドで並べる。SP では1列に変更。 */
 .radio-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -282,13 +255,12 @@
 }
 
 .radio-item input[type="radio"] {
-  accent-color: var(--color-secondary); /* ラジオの色を secondary ブルーに */
+  accent-color: var(--color-secondary);
   width: 18px;
   height: 18px;
   cursor: pointer;
 }
 
-/* ===== 同意チェックボックス ===== */
 .agree-row {
   display: flex;
   align-items: flex-start;
@@ -312,8 +284,6 @@
   font-weight: 700;
 }
 
-/* ===== 送信ボタン =====
-   フォーム最下部の登録ボタン。margin-top: 8px で同意チェックとの間に余白。 */
 .submit-btn {
   display: flex;
   align-items: center;
@@ -348,8 +318,6 @@
   font-weight: 700;
 }
 
-/* ===== メリット列（右カラム）=====
-   フォームの右側に配置する「登録するとできること」の説明エリア。 */
 .reg-merit {
   padding: 48px 0 48px 0;
 }
@@ -367,14 +335,12 @@
   gap: 24px;
 }
 
-/* メリット1項目: アイコン（丸）+ テキストを横並び */
 .merit-item {
   display: flex;
   gap: 16px;
   align-items: flex-start;
 }
 
-/* 円形アイコンバッジ */
 .merit-item__icon {
   width: 36px;
   height: 36px;
@@ -385,7 +351,7 @@
   justify-content: center;
   color: var(--color-secondary);
   font-size: 18px;
-  flex-shrink: 0; /* テキストが長くなってもアイコンサイズを維持 */
+  flex-shrink: 0;
 }
 
 .merit-item__content {
@@ -411,7 +377,6 @@
   margin: 24px 0;
 }
 
-/* セキュリティバッジ（SSL表記） */
 .security-badge {
   text-align: center;
   font-size: 13px;
@@ -419,7 +384,6 @@
   line-height: 2;
 }
 
-/* 登録者数などの大きい数値表示 */
 .reg-stat {
   text-align: center;
   margin-top: 24px;
@@ -438,7 +402,11 @@
   margin-top: 4px;
 }
 
-/* ===== レスポンシブ (〜768px) ===== */
+.btn--disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .reg-hero {
     height: 120px;
@@ -456,7 +424,6 @@
     padding: 40px 0;
   }
 
-  /* SP: 2列グリッドを1列に変更し、メリット列をフォームの下に表示 */
   .reg-main__inner {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -471,12 +438,10 @@
     font-size: 22px;
   }
 
-  /* SP: 姓・名の横並びを縦積みに */
   .form-group--row {
     flex-direction: column;
   }
 
-  /* SP: ラジオボタンを1列に */
   .radio-group {
     grid-template-columns: 1fr;
   }

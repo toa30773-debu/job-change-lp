@@ -1,6 +1,3 @@
-/* ===== S02: ファーストビュー (FV) =====
-   ヒーロー画像の上にグラデーションオーバーレイを重ねてテキストを読みやすくしている。
-   背景画像を差し替えたい場合は hero-bg.webp を入れ替えるだけでOK。 */
 .fv {
   position: relative;
   min-height: 680px;
@@ -11,8 +8,6 @@
   overflow: hidden;
 }
 
-/* ヒーロー画像の上に重ねるグラデーションオーバーレイ。
-   透明度を調整するとテキストの読みやすさが変わる。 */
 .fv::before {
   content: '';
   position: absolute;
@@ -29,7 +24,6 @@
   width: 100%;
 }
 
-/* 「累計登録者数 500,000人突破」のバッジ */
 .fv__badge {
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
@@ -42,7 +36,6 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* メインキャッチコピー: PC 56px / SP 32px */
 .fv__title {
   font-size: 56px;
   font-weight: 700;
@@ -57,7 +50,6 @@
   margin-bottom: 12px;
 }
 
-/* 「掲載求人数 120,000件以上」の数値テキスト */
 .fv__count {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.85);
@@ -66,12 +58,9 @@
 
 .fv__count strong {
   font-weight: 700;
-  font-family: var(--font-en); /* 数字はEnglishフォントで視認性UP */
+  font-family: var(--font-en);
 }
 
-/* ===== 検索フォーム =====
-   入力欄・エリア選択・検索ボタンを横並びにした1行フォーム。
-   SP ではそれぞれ縦に積み重なる（下のレスポンシブ参照）。 */
 .fv__search {
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -98,7 +87,6 @@
   color: #aaa;
 }
 
-/* 入力欄とエリア選択の区切り線 */
 .fv__search-divider {
   width: 1px;
   background: var(--color-border);
@@ -130,7 +118,7 @@
 }
 
 .fv__search-btn:hover {
-  background: #1e5fa8; /* secondary より少し暗い色にホバー時変更 */
+  background: #1e5fa8;
 }
 
 .fv__search-link {
@@ -145,8 +133,6 @@
   color: var(--color-white);
 }
 
-/* ===== CTAエリア =====
-   メイン登録ボタン（オレンジ）とSNS登録ボタンを縦に並べる。 */
 .fv__cta {
   margin-top: 24px;
   max-width: 400px;
@@ -177,7 +163,6 @@
   margin-top: 12px;
 }
 
-/* Google・Yahoo! のSNS登録ボタン。アイコンは HTML側で変更する */
 .fv__sns-btn {
   flex: 1;
   display: flex;
@@ -198,9 +183,6 @@
   background: var(--color-bg-light);
 }
 
-/* ===== 実績統計バー =====
-   FV下部の「求人数・登録者数・転職成功率」を横並びで表示する帯。
-   backdrop-filter でガラスエフェクトを演出している。 */
 .fv__stats {
   position: relative;
   z-index: 1;
@@ -222,9 +204,8 @@
   color: var(--color-white);
 }
 
-/* 統計の数値部分（例：「120,000件+」） */
 .stat__number {
-  font-family: var(--font-en); /* 数字には英字フォントを使用 */
+  font-family: var(--font-en);
   font-size: 40px;
   font-weight: 700;
   line-height: 1;
@@ -236,9 +217,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ===== S03: 特集スライダー =====
-   横スクロールカードを JS で自動ループさせるスライダー。
-   カード枚数の変更は HTML を編集。速度は index.js の speed 変数で調整。 */
 .feature {
   padding: var(--section-padding) 0;
   background: var(--color-bg-light);
@@ -257,14 +235,12 @@
   margin-bottom: 32px;
 }
 
-/* 横スクロールを排除し3列グリッドで全カードを静的表示 */
 .feature__slider {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* 特集カード: 高さ 445px (Figma 仕様値)。幅はグリッドが制御 */
 .feature-card {
   height: 445px;
   position: relative;
@@ -280,7 +256,6 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
 }
 
-/* カード上部の画像エリア: 高さ 160px (Figma 仕様値) */
 .feature-card__img {
   position: absolute;
   top: 0;
@@ -290,7 +265,6 @@
   object-fit: cover;
 }
 
-/* 画像下のカラーアクセントバー: 高さ 8px。色は HTML の style 属性でカードごとに指定 */
 .feature-card__accent {
   position: absolute;
   top: 160px;
@@ -299,19 +273,17 @@
   height: 8px;
 }
 
-/* カードタイトル: 画像(160px) + アクセントバー(8px) + 上パディング(24px) = top: 192px */
 .feature-card__title {
   position: absolute;
   top: 192px;
   left: 20px;
-  width: calc(100% - 40px); /* カード幅 - 左右マージン(20px × 2) */
+  width: calc(100% - 40px);
   font-size: 18px;
   font-weight: 700;
   color: #1a1b2e;
   line-height: 1.3;
 }
 
-/* 件数表示（例：「2,341件」） */
 .feature-card__count {
   position: absolute;
   top: 222px;
@@ -323,18 +295,16 @@
   line-height: 1.2;
 }
 
-/* カード説明文 */
 .feature-card__desc {
   position: absolute;
   top: 261px;
   left: 20px;
-  width: calc(100% - 40px); /* カード幅 - 左右マージン(20px × 2) */
+  width: calc(100% - 40px);
   font-size: 14px;
   color: #595966;
   line-height: 1.7;
 }
 
-/* タグ一覧（例：「マネージャー」「専門職」「外資系」） */
 .feature-card__tags {
   position: absolute;
   top: 349px;
@@ -355,7 +325,6 @@
   white-space: nowrap;
 }
 
-/* 「すべて見る →」リンク: カード右下に配置。right 基準で幅に依存しない */
 .feature-card__link {
   position: absolute;
   top: 413px;
@@ -369,9 +338,6 @@
   opacity: 0.75;
 }
 
-/* ===== S04: 注目企業の求人 =====
-   2列グリッドで求人カードを並べる。
-   列数変更は grid-template-columns を修正。 */
 .pickup {
   padding: var(--section-padding) 0;
   background: var(--color-white);
@@ -386,13 +352,12 @@
 
 .pickup__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* PC: 2列 / SP: 1列 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin-top: 48px;
   text-align: left;
 }
 
-/* 求人カード */
 .job-card {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -407,7 +372,6 @@
   transform: translateY(-2px);
 }
 
-/* 企業ロゴプレースホルダー: 実ロゴ画像を使う場合は img タグに差し替える */
 .job-card__logo {
   width: 80px;
   height: 40px;
@@ -441,7 +405,6 @@
   gap: 8px;
 }
 
-/* 「年収」「場所」などのメタ情報タグ */
 .job-card__tag {
   font-size: 13px;
   color: var(--color-secondary);
@@ -451,8 +414,12 @@
   font-weight: 500;
 }
 
-.pickup__more {
+.pickup__more-wrapper {
+  text-align: center;
   margin-top: 24px;
+}
+
+.pickup__more {
   font-size: 15px;
   color: var(--color-secondary);
   font-weight: 700;
@@ -463,9 +430,6 @@
   color: var(--color-primary);
 }
 
-/* ===== S05: こだわり条件タイル =====
-   アイコン + ラベルのカードを4列グリッドで並べる。
-   SP では 2列に変更。 */
 .theme {
   padding: var(--section-padding) 0;
   background: var(--color-bg-light);
@@ -480,7 +444,7 @@
 
 .theme__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* PC: 4列 / SP: 2列 */
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 48px;
 }
@@ -515,9 +479,6 @@
   color: var(--color-text);
 }
 
-/* ===== S06: 新着求人 =====
-   求人をリスト形式で表示する。
-   列構成: タイトル・会社名・年収・場所・更新日（SP では年収と更新日を非表示）。 */
 .newjobs {
   padding: var(--section-padding) 0;
   background: var(--color-white);
@@ -540,7 +501,6 @@
   border-top: 1px solid var(--color-border);
 }
 
-/* 求人1行: 5列グリッド（タイトル 2fr / 会社名 1.5fr / 年収 1fr / 場所 1fr / 日付 auto） */
 .job-row {
   display: grid;
   grid-template-columns: 2fr 1.5fr 1fr 1fr auto;
@@ -588,9 +548,6 @@
   white-space: nowrap;
 }
 
-/* ===== S07: 職種・業種・エリア タブ =====
-   .tab-btn に is-active を付与・除去することで表示パネルを切り替える。
-   切り替えロジックは index.js にある。 */
 .category {
   padding: var(--section-padding) 0;
   background: var(--color-bg-light);
@@ -603,7 +560,6 @@
   text-align: center;
 }
 
-/* タブボタンを横並びにする囲み */
 .tab-bar {
   display: inline-flex;
   background: var(--color-white);
@@ -624,7 +580,6 @@
   transition: background var(--transition), color var(--transition);
 }
 
-/* アクティブなタブは primary 色で塗りつぶし */
 .tab-btn.is-active {
   background: var(--color-primary);
   color: var(--color-white);
@@ -635,7 +590,6 @@
   color: var(--color-text);
 }
 
-/* タブパネル: デフォルト非表示。is-active が付いたときだけ表示 */
 .tab-content {
   display: none;
 }
@@ -644,7 +598,6 @@
   display: block;
 }
 
-/* カテゴリータイル: PC 4列 / SP 2列 */
 .category__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -670,9 +623,6 @@
   transform: translateY(-2px);
 }
 
-/* ===== S08: 転職ノウハウ =====
-   3列カード。カード数の増減は HTML を編集し、
-   列数は grid-template-columns で調整する。 */
 .knowhow {
   padding: var(--section-padding) 0;
   background: var(--color-white);
@@ -687,7 +637,7 @@
 
 .knowhow__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* PC: 3列 / SP: 1列 */
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 48px;
   text-align: left;
@@ -737,9 +687,6 @@
   color: var(--color-primary);
 }
 
-/* ===== S09: クロージングCTA =====
-   ページ下部の最終登録促進エリア。背景は primary ネイビー。
-   ボタン幅は固定値 360px（SP では 100%）。 */
 .closing-cta {
   padding: var(--section-padding) 0;
   background: var(--color-primary);
@@ -766,7 +713,6 @@
   margin-bottom: 40px;
 }
 
-/* 登録CTAボタン: PC 固定幅 360px / SP 100% */
 .closing-cta__btn {
   display: inline-flex;
   align-items: center;
@@ -817,7 +763,6 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ===== レスポンシブ (〜768px) ===== */
 @media (max-width: 768px) {
   .fv {
     min-height: 700px;
@@ -835,7 +780,6 @@
     font-size: 16px;
   }
 
-  /* SP では検索フォームを縦積みにする */
   .fv__search {
     flex-direction: column;
     height: auto;
@@ -850,7 +794,7 @@
   }
 
   .fv__search-divider {
-    display: none; /* 縦積み時は区切り線不要 */
+    display: none;
   }
 
   .fv__search-btn {
@@ -862,7 +806,6 @@
     max-width: 100%;
   }
 
-  /* SP では SNS ボタンを縦積みにする */
   .fv__sns-btns {
     flex-direction: column;
   }
@@ -873,7 +816,6 @@
     padding: 24px 16px;
   }
 
-  /* セクション内の左右パディングをSP用に上書き */
   .feature__inner,
   .pickup__inner,
   .theme__inner,
@@ -888,12 +830,10 @@
     font-size: 26px;
   }
 
-  /* SP: 求人カードを1列に変更 */
   .pickup__grid {
     grid-template-columns: 1fr;
   }
 
-  /* SP: こだわり条件を2列に変更 */
   .theme__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -905,10 +845,9 @@
 
   .job-row__salary,
   .job-row__date {
-    display: none; /* SP では省略して表示をシンプルに */
+    display: none;
   }
 
-  /* SP: カテゴリータイルを2列に変更 */
   .category__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -918,7 +857,6 @@
     font-size: 14px;
   }
 
-  /* SP: ノウハウカードを1列に変更 */
   .knowhow__grid {
     grid-template-columns: 1fr;
   }
@@ -927,7 +865,6 @@
     font-size: 24px;
   }
 
-  /* SP: CTAボタンを横幅いっぱいに */
   .closing-cta__btn {
     width: 100%;
     font-size: 17px;
@@ -938,7 +875,6 @@
     flex-direction: column;
   }
 
-  /* セクション上下パディングをSP用に縮小 */
   .feature,
   .pickup,
   .theme,
@@ -949,22 +885,18 @@
     padding: var(--section-padding-sp) 0;
   }
 
-  /* SP: 3列グリッドを1列に変更（カード幅・テキスト幅はデスクトップの calc で自動対応） */
   .feature__slider {
     grid-template-columns: 1fr;
   }
 
-  /* 新着求人タイトルのフォントサイズ */
   .newjobs__title {
     font-size: 26px;
   }
 
-  /* 統計数値のフォントサイズ */
   .stat__number {
     font-size: 28px;
   }
 
-  /* 求人リスト: タイトルを2列フル幅に */
   .job-row__title {
     grid-column: 1 / -1;
   }

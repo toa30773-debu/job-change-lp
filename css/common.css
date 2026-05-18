@@ -1,6 +1,3 @@
-/* ===== ヘッダー =====
-   固定ヘッダー (position: fixed)。高さ 72px はサイト全体で共通の基準値。
-   スクロール時に is-scrolled クラスが JS から付与されて影が出る。 */
 .header {
   position: fixed;
   top: 0;
@@ -15,7 +12,6 @@
   transition: box-shadow var(--transition);
 }
 
-/* スクロール時に JS で付与されるクラス */
 .header.is-scrolled {
   box-shadow: var(--shadow-header);
 }
@@ -24,7 +20,7 @@
   width: 100%;
   max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: 0 120px; /* SP では 0 16px に上書き */
+  padding: 0 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,9 +59,7 @@
   color: var(--color-secondary);
 }
 
-/* ===== ハンバーガーボタン =====
-   PC では非表示。SP で表示し、クリックで3本線→×にアニメーション。
-   開閉状態は JS が is-open クラスで管理する。 */
+/* PC では非表示。SP で表示し、クリックで3本線→×にアニメーション */
 .header__hamburger {
   display: none;
   flex-direction: column;
@@ -84,7 +78,6 @@
   transition: transform var(--transition), opacity var(--transition);
 }
 
-/* is-open 時に3本線を×へ変形 */
 .header__hamburger.is-open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -95,7 +88,6 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* ===== ボタン ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -123,7 +115,6 @@
   font-size: 15px;
 }
 
-/* ===== フッター ===== */
 .footer {
   background: var(--color-footer-bg);
   color: var(--color-white);
@@ -156,7 +147,6 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* リンクを3列グリッドで並べる。列数を変えるには grid-template-columns を修正 */
 .footer__links {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -208,9 +198,6 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* ===== セクション共通CTAバー =====
-   各セクション末尾に配置するオレンジのCTAボタン。
-   マージンやフォントサイズを変更したい場合はここを編集。 */
 .section-cta {
   text-align: center;
   margin-top: 48px;
@@ -234,8 +221,6 @@
   transform: translateY(-2px);
 }
 
-/* ===== セクション共通 =====
-   .section--bg-light / .section--bg-white で交互に背景を切り替えている。 */
 .section--bg-light {
   background: var(--color-bg-light);
 }
@@ -244,7 +229,6 @@
   background: var(--color-white);
 }
 
-/* セクション見出し (h2): 40px PC / 26px SP */
 .section__title {
   font-family: var(--font-ja);
   font-size: 40px;
@@ -267,18 +251,15 @@
   text-align: center;
 }
 
-/* ===== レスポンシブ (〜768px) ===== */
 @media (max-width: 768px) {
   .header__inner {
     padding: 0 16px;
   }
 
-  /* SP: ハンバーガーボタンを表示 */
   .header__hamburger {
     display: flex;
   }
 
-  /* SP: ナビは初期非表示。is-open クラスが付いたときだけドロップダウン表示 */
   .header__nav {
     display: none;
   }
@@ -298,12 +279,10 @@
     z-index: 999; /* ヘッダー(z-index:1000)の直下・ページコンテンツより前面 */
   }
 
-  /* メニュー内の登録ボタンをフル幅に */
   .header__nav.is-open .btn {
     width: 100%;
     justify-content: center;
   }
-
 
   .footer__inner {
     padding: 0 16px;
@@ -314,7 +293,6 @@
     gap: 32px;
   }
 
-  /* SP では2列に変更 */
   .footer__links {
     grid-template-columns: repeat(2, auto);
     gap: 12px 24px;

@@ -1,44 +1,33 @@
-/* ===== デザイントークン =====
-   サイト全体で共通利用するカラー・フォント・余白などの変数定義。
-   色の変更やスペーシングの調整はここを編集すれば全体に反映される。 */
-
 :root {
 
-  /* --- ブランドカラー ---
-     primary（ネイビー）: ヘッダーロゴ・見出し強調・フッター背景
-     secondary（ブルー）: リンク・ボタン・アクティブ状態
-     accent（オレンジ）: CTAボタン・重要ラベル・特集タグ */
+  /* Colors */
   --color-primary:   #1A3C6E;
   --color-secondary: #2D7DD2;
   --color-accent:    #F4A623;
 
-  /* --- 背景・テキスト・ボーダー --- */
-  --color-bg-light:  #F7F9FC; /* 薄グレー背景：偶数セクション背景に使用 */
-  --color-text:      #1A1A2E; /* メインテキスト色 */
+  --color-bg-light:  #F7F9FC;
+  --color-text:      #1A1A2E;
   --color-white:     #FFFFFF;
-  --color-border:    #E0E6EF; /* カード枠線・区切り線 */
-  --color-footer-bg: #1A1A2E; /* フッター背景: テキスト色と同値でダークに統一 */
+  --color-border:    #E0E6EF;
+  --color-footer-bg: #1A1A2E;
 
-  /* --- フォント ---
-     日本語テキスト全般: Noto Sans JP
-     数字・英字・統計数値: Inter（等幅で視認性が高い） */
+  /* Fonts */
   --font-ja: 'Noto Sans JP', sans-serif;
   --font-en: 'Inter', sans-serif;
 
-  /* --- レイアウト --- */
-  --content-max-width: 1440px; /* コンテンツ最大幅: 大画面でも広がりすぎない */
-  --section-padding:    100px; /* PC: セクション上下余白 */
-  --section-padding-sp:  60px; /* SP: セクション上下余白 */
+  /* Layout */
+  --content-max-width: 1440px;
+  --section-padding:    100px;
+  --section-padding-sp:  60px;
 
-  /* --- 影 --- */
-  --shadow-card:   0px 4px 24px rgba(0, 0, 0, 0.08); /* カードの浮き上がり影 */
-  --shadow-header: 0 2px 8px rgba(0, 0, 0, 0.1);     /* スクロール時のヘッダー影 */
+  /* Shadows */
+  --shadow-card:   0px 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-header: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-  /* --- 角丸 --- */
-  --radius-md:  8px;  /* ボタン・入力欄・一般カード */
-  --radius-lg: 12px;  /* 大きいカード・フォームカード */
+  /* Border radius */
+  --radius-md:  8px;
+  --radius-lg: 12px;
 
-  /* --- トランジション ---
-     ホバーアニメーションの速度。全コンポーネントで共通利用 */
+  /* Transition */
   --transition: 0.2s ease;
 }
